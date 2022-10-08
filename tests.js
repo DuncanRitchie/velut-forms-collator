@@ -26,7 +26,56 @@ const outputFromSample = {
 	]
 }
 
-const allTestData = [[sampleData, outputFromSample]]
+const latinusSample = `
+Latīnus	Latīnus[prn] Latīnus[adj]
+Latīna	Latīnus[adj]
+Latīnum	Latīnus[prn] Latīnus[adj]
+Latīnī	Latīnus[prn] Latīnus[adj]
+Latīnae	Latīnus[adj]
+Latīnō	Latīnus[prn] Latīnus[adj]
+Latīnīs	Latīnus[prn] Latīnus[adj]
+Latīnam	Latīnus[adj]
+Latīnōs	Latīnus[prn] Latīnus[adj]
+Latīnās	Latīnus[adj]
+Latīnā	Latīnus[adj]
+Latīne	Latīnus[prn] Latīnus[adj]
+Latīnōrum	Latīnus[prn] Latīnus[adj]
+Latīnārum	Latīnus[adj]
+`
+
+const outputFromLatinusSample = {
+	"Latīnus[prn]": [
+		"Latīnus",
+		"Latīnum",
+		"Latīnī",
+		"Latīnō",
+		"Latīnīs",
+		"Latīnōs",
+		"Latīne",
+		"Latīnōrum"
+	],
+	"Latīnus[adj]": [
+		"Latīnus",
+		"Latīna",
+		"Latīnum",
+		"Latīnī",
+		"Latīnae",
+		"Latīnō",
+		"Latīnīs",
+		"Latīnam",
+		"Latīnōs",
+		"Latīnās",
+		"Latīnā",
+		"Latīne",
+		"Latīnōrum",
+		"Latīnārum"
+	]
+}
+
+const allTestData = [
+	[sampleData, outputFromSample],
+	[latinusSample, outputFromLatinusSample],
+]
 
 
 //// Tests looping over the above arrays:
