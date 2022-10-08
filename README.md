@@ -15,28 +15,57 @@ The Forms Collator is similar in structure to my Word Data Generator, but a lot 
 Each line of input must be a word, whitespace, and the space-separated list of lemmata. For example:
 
 ```txt
-vocābulōrum	vocābulum
-excellentium	excellēns excellō
+Latīnus	Latīnus[prn] Latīnus[adj]
+Latīna	Latīnus[adj]
+Latīnum	Latīnus[prn] Latīnus[adj]
+Latīnī	Latīnus[prn] Latīnus[adj]
+Latīnae	Latīnus[adj]
+Latīnō	Latīnus[prn] Latīnus[adj]
+Latīnīs	Latīnus[prn] Latīnus[adj]
+Latīnam	Latīnus[adj]
+Latīnōs	Latīnus[prn] Latīnus[adj]
+Latīnās	Latīnus[adj]
+Latīnā	Latīnus[adj]
+Latīne	Latīnus[prn] Latīnus[adj]
+Latīnōrum	Latīnus[prn] Latīnus[adj]
+Latīnārum	Latīnus[adj]
 ```
+
+(In velut I use brackets to disambiguate between lemmata that are the same except for their parts of speech. For example, the word <i lang="la">Latīnus</i> is form of the proper noun <i lang="la">Latīnus</i> and the adjective <i lang="la">Latīnus</i>, etc.)
 
 There is a “Load sample” button to give you more examples.
 
 ## Output
 
-The Json generated does not have commas separating the objects, or square brackets around the entire array. This is not the standard Json format, but is the format required by mongoimport (which is the tool my script uses to import into the database).
-
 The example above gives this output:
 
 ```json
 {
-	"vocābulum": [
-		"vocābulōrum"
+	"Latīnus[prn]": [
+		"Latīnus",
+		"Latīnum",
+		"Latīnī",
+		"Latīnō",
+		"Latīnīs",
+		"Latīnōs",
+		"Latīne",
+		"Latīnōrum"
 	],
-	"excellēns": [
-		"excellentium"
-	],
-	"excellō": [
-		"excellentium"
+	"Latīnus[adj]": [
+		"Latīnus",
+		"Latīna",
+		"Latīnum",
+		"Latīnī",
+		"Latīnae",
+		"Latīnō",
+		"Latīnīs",
+		"Latīnam",
+		"Latīnōs",
+		"Latīnās",
+		"Latīnā",
+		"Latīne",
+		"Latīnōrum",
+		"Latīnārum"
 	]
 }
 ```
