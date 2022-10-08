@@ -80,6 +80,8 @@ if (typeof require !== 'undefined') {
 		//// Output data are written to a file.
 		const outputFileUrl =
 			'C:/Users/Duncan Ritchie/Documents/Code/velutSideAssets/Json/lemmata-from-collator_mongo.json';
+		const prettyOutputFileUrl =
+			'C:/Users/Duncan Ritchie/Documents/Code/velutSideAssets/Json/lemmata-from-collator_mongo_pretty.json';
 		//// For regression testing, I have a file of expected output, that the actual output is compared against.
 		// const expectedOutputFileUrl =
 		// 	'C:/Users/Duncan Ritchie/Documents/Code/velutSideAssets/Json/expected-words_mongo.json';
@@ -94,6 +96,7 @@ if (typeof require !== 'undefined') {
 				const output = convertInputToOutputData(inputRows);
 
 				fs.writeFileSync(outputFileUrl, JSON.stringify(output));
+				fs.writeFileSync(prettyOutputFileUrl, JSON.stringify(output, null, '\t'));
 
 				console.log('Output all data! See your file at ' + outputFileUrl);
 				console.timeEnd('generatingOutput');
