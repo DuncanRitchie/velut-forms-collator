@@ -63,9 +63,7 @@ const convertInputToOutputData = (allInputRows) => {
 
 
 ////
-//// TO DO: MAKE THIS MAKE SENSE FOR THE FORMS COLLATOR.
 //// Code that only runs in Node:
-//// (Divided into functions for easier commenting-out when debugging.)
 ////
 
 if (typeof require !== 'undefined') {
@@ -82,9 +80,6 @@ if (typeof require !== 'undefined') {
 			'C:/Users/Duncan Ritchie/Documents/Code/velutSideAssets/Json/lemmata-from-collator_mongo.json';
 		const prettyOutputFileUrl =
 			'C:/Users/Duncan Ritchie/Documents/Code/velutSideAssets/Json/lemmata-from-collator_mongo_pretty.json';
-		//// For regression testing, I have a file of expected output, that the actual output is compared against.
-		// const expectedOutputFileUrl =
-		// 	'C:/Users/Duncan Ritchie/Documents/Code/velutSideAssets/Json/expected-words_mongo.json';
 
 		try {
 			const generateOutputAndSave = () => {
@@ -101,69 +96,7 @@ if (typeof require !== 'undefined') {
 				console.log('Output all data! See your file at ' + outputFileUrl);
 				console.timeEnd('generatingOutput');
 			}
-
-			// const checkAgainstExpected = () => {
-			// 	console.time('checkingOutput');
-
-			// 	const outputRows = fs.readFileSync(outputFileUrl, 'utf8').split('\n');
-
-			// 	const expectedOutput = fs.readFileSync(expectedOutputFileUrl, 'utf8');
-			// 	const expectedOutputRows = expectedOutput.split('\n');
-
-			// 	let errorCount = 0;
-			// 	let lastWordSeen = '';
-			// 	for (
-			// 		let i = 0;
-			// 		i < outputRows.length && i < expectedOutputRows.length;
-			// 		i++
-			// 	) {
-			// 		if (outputRows[i].startsWith('"Word":')) {
-			// 			lastWordSeen = outputRows[i];
-			// 		}
-
-			// 		if (outputRows[i] === expectedOutputRows[i]) {
-			// 			// console.log('Yay!');
-			// 		} else {
-			// 			// if (
-			// 			// 	// !outputRows[i].startsWith('"Scansion"')
-			// 			// 	!lastWordSeen.startsWith('"Word": "coic') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "caelit') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "coiēns"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "conlātaque"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "deiēns"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "dein"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "deinde"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "hymenaeus"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "ignōrātiō') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "introiēns"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "iūsiūrandum"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "īnspectemque"') &&
-			// 			// 	!lastWordSeen.startsWith('"Word": "nūmin') &&
-			// 			// 	!lastWordSeen.includes('nf') &&
-			// 			// 	!lastWordSeen.includes('ifer') &&
-			// 			// 	!lastWordSeen.includes('iger') &&
-			// 			// 	!outputRows[i].startsWith('"LemmaCount"') &&
-			// 			// 	!outputRows[i].startsWith('"IsFitForDactyl"') &&
-			// 			// 	!outputRows[i].startsWith('"Uncompounded"')
-			// 			// 	// !outputRows[i].startsWith('"RhymeConsonants"')
-			// 			// ) {
-			// 			errorCount++;
-			// 			console.error({
-			// 				message: `Mismatch at line ${i}`,
-			// 				excelSays: expectedOutputRows[i],
-			// 				javascriptSays: outputRows[i],
-			// 				for: lastWordSeen,
-			// 			});
-			// 			// }
-			// 		}
-			// 	}
-			// 	console.warn(`There were ${errorCount} mismatches.`);
-
-			// 	console.timeEnd('checkingOutput');
-			// };
-
 			generateOutputAndSave();
-			// checkAgainstExpected();
 
 		} catch (err) {
 			console.error(err);
